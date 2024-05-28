@@ -9,7 +9,7 @@ def convert_coordinates(input_csv, output_csv):
     df = pd.read_csv(input_csv)
 
     # Initialize the transformer
-    transformer = Transformer.from_crs("EPSG:3059", "EPSG:4326", always_xy=True)
+    transformer = Transformer.from_crs("EPSG:3059", "EPSG:4326", always_xy=False)
 
     # Define a function to transform coordinates
     def transform_coords(x, y):
