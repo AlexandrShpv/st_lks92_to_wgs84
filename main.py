@@ -23,8 +23,9 @@ def convert_coordinates(input_csv, output_csv):
     # Add a column with the WKT LINESTRING representation
     df['wkt'] = df.apply(lambda row: f"LINESTRING({row['X1']} {row['Y1']}, {row['X2']} {row['Y2']})", axis=1)
     
-    df = df.drop(columns=['X1', 'Y1', 'X2', 'Y2'])
-    df = df.rename(columns={'Iezīme': 'line_name', 'Tīkla elementu skaits': 'skaits'})
+    df = df.drop(columns=['X1', 'Y1', 'X2', 'Y2', 'Tīkla elementu skaits'])
+    df = df.rename(columns={'ID': 'tower_name', 'TO_ID': 'line_name', 'Iecirknis': 'region'})
+    # df = df.rename(columns={'Iezīme': 'line_name', 'Tīkla elementu skaits': 'skaits'})
 
 
     # Save the modified DataFrame to a new CSV file
